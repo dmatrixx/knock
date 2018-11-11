@@ -172,7 +172,7 @@ def main():
 			try:
 				apikey_vt = apikey['virustotal']
 				if apikey_vt != '':
-					virustotal_list = virustotal_subdomains.get_subdomains(target, apikey_vt)
+					virustotal_list = virustotal_subdomains.get_subdomains()
 					if virustotal_list:
 						init('YES', True)
 						print(json.dumps(virustotal_list, indent=4, separators=(',', ': ')))
