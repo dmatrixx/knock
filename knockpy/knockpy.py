@@ -114,6 +114,7 @@ def init(text, resp=False):
 	else:
 		print(text),
 
+target = args.domain	
 datetime = datetime.date.today()
 day = str(datetime.day)+"-"+str(datetime.month)+"-"+str(datetime.year)
 root = '/home/ubuntu/asset'
@@ -149,7 +150,7 @@ def main():
 						
 	args = parser.parse_args()
 	
-	target = args.domain
+	
 	wlist = args.wordlist
 	resolve_host = args.resolve
 	save_scan_csv = args.csv
