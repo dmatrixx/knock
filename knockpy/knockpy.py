@@ -148,14 +148,12 @@ def main():
 	day = str(datetime.now().day)+"-"+str(datetime.now().month)+"-"+str(datetime.now().year)
 	root = '/home/ubuntu/asset'
 	f2 = os.path.join(root,target,day,'FQDN.txt')
-	def get_subdomains():
-		d = []
-		with open(f2) as f:
-			for line in f:
-				d.append(line.replace('\n',''))
-		return d
 	
-	
+	d = []
+	with open(f2) as f:
+		for line in f:
+			d.append(line.replace('\n',''))
+			
 	print_header()
 
 	'''
@@ -185,7 +183,7 @@ def main():
 			try:
 				apikey_vt = apikey['virustotal']
 				if apikey_vt != '':
-					virustotal_list = get_subdomains()
+					virustotal_list = d
 					if virustotal_list:
 						init('YES', True)
 						print(json.dumps(virustotal_list, indent=4, separators=(',', ': ')))
