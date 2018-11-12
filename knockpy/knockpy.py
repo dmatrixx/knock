@@ -15,7 +15,7 @@ import json
 import os.path
 import argparse
 import os.path
-import datetime
+
 
 __author__='Gianni \'guelfoweb\' Amato'
 __version__='4.1.1'
@@ -161,7 +161,7 @@ def main():
 	'''
 	start
 	'''
-	time_start = str(datetime.datetime.now())
+	time_start = str(datetime.now())
 
 	'''
 	parse target domain
@@ -273,7 +273,7 @@ def main():
 	except:
 		pass
 	
-	time_end = str(datetime.datetime.now())
+	time_end = str(datetime.now())
 	
 	stats = {'time_start': time_start, 'time_end': time_end}
 
