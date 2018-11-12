@@ -114,6 +114,8 @@ def init(text, resp=False):
 	else:
 		print(text),
 
+
+args = parser.parse_args()
 target = args.domain	
 datetime = datetime.date.today()
 day = str(datetime.day)+"-"+str(datetime.month)+"-"+str(datetime.year)
@@ -147,8 +149,6 @@ def main():
 	parser.add_argument('-j', '--json', help='export full report in JSON',
 						action='store_true', required=False)
 
-						
-	args = parser.parse_args()
 	
 	
 	wlist = args.wordlist
