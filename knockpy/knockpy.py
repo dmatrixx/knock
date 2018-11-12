@@ -114,20 +114,6 @@ def init(text, resp=False):
 	else:
 		print(text),
 
-
-args = parser.parse_args()
-target = args.domain	
-datetime = datetime.date.today()
-day = str(datetime.day)+"-"+str(datetime.month)+"-"+str(datetime.year)
-root = '/home/ubuntu/asset'
-f2 = os.path.join(root,target,day,'FQDN.txt')
-				
-def get_subdomains():
-	d = []
-	with open(f2) as f:
-		for line in f:
-			d.append(line.replace('\n',''))
-	return d		
 		
 def main():
 	parser = argparse.ArgumentParser(
@@ -149,14 +135,27 @@ def main():
 	parser.add_argument('-j', '--json', help='export full report in JSON',
 						action='store_true', required=False)
 
+	args = parser.parse_args()
 	
-	
+	target = args.domain
 	wlist = args.wordlist
 	resolve_host = args.resolve
 	save_scan_csv = args.csv
 	save_scan_csvfields = args.csvfields
 	save_scan_json = args.json
-
+	
+        datetime = datetime.date.today()
+	day = str(datetime.day)+"-"+str(datetime.month)+"-"+str(datetime.year)
+	root = '/home/ubuntu/asset'
+	f2 = os.path.join(root,target,day,'FQDN.txt')
+	def get_subdomains():
+		d = []
+		with open(f2) as f:
+			for line in f:
+				d.append(line.replace('\n',''))
+		return d
+	
+	
 	print_header()
 
 	'''
