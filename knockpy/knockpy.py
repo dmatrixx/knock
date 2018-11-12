@@ -114,10 +114,10 @@ def init(text, resp=False):
 	else:
 		print(text),
 
-now = datetime.now()
-day = str(now.day)+"-"+str(now.month)+"-"+str(now.year)
+datetime = datetime.date()
+day = str(datetime.day)+"-"+str(datetime.month)+"-"+str(datetime.year)
 root = '/home/ubuntu/asset'
-f2 = os.path.join(root, target, day,'FQDN.txt')
+f2 = os.path.join(root,target,day,'FQDN.txt')
 				
 def get_subdomains():
 	d = []
