@@ -13,7 +13,6 @@ from datetime import datetime
 import sys
 import json
 import os.path
-import datetime
 import argparse
 import os.path
 
@@ -144,8 +143,8 @@ def main():
 	save_scan_csvfields = args.csvfields
 	save_scan_json = args.json
 	
-        datetime = datetime.date.today()
-	day = str(datetime.day)+"-"+str(datetime.month)+"-"+str(datetime.year)
+        
+	day = str(datetime.now().day)+"-"+str(datetime.now().month)+"-"+str(datetime.now().year)
 	root = '/home/ubuntu/asset'
 	f2 = os.path.join(root,target,day,'FQDN.txt')
 	def get_subdomains():
