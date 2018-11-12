@@ -114,7 +114,7 @@ def init(text, resp=False):
 	else:
 		print(text),
 
-datetime = datetime.date()
+datetime = datetime.date.today()
 day = str(datetime.day)+"-"+str(datetime.month)+"-"+str(datetime.year)
 root = '/home/ubuntu/asset'
 f2 = os.path.join(root,target,day,'FQDN.txt')
