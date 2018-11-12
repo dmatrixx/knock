@@ -1,7 +1,11 @@
 import os.path
 
-_ROOT = os.path.abspath(os.path.dirname(__file__))
-file = os.path.join(_ROOT, '', 'FQDN.txt')
+from datetime import datetime
+
+now = datetime.now()
+day = str(now.day)+"-"+str(now.month)+"-"+str(now.year)
+root = '/home/ubuntu/asset'
+file = os.path.join(root, target, day,'FQDN.txt')
 
 def get_subdomains():
     d = []
