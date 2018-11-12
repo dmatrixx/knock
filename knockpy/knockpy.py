@@ -9,12 +9,14 @@ from modules import save_report
 from modules import virustotal_subdomains
 
 from urlparse import urlparse
+from datetime import datetime
 
 import sys
 import json
 import os.path
 import datetime
 import argparse
+import os.path
 
 __author__='Gianni \'guelfoweb\' Amato'
 __version__='4.1.1'
@@ -113,6 +115,18 @@ def init(text, resp=False):
 	else:
 		print(text),
 
+now = datetime.now()
+day = str(now.day)+"-"+str(now.month)+"-"+str(now.year)
+root = '/home/ubuntu/asset'
+f2 = os.path.join(root, target, day,'FQDN.txt')
+				
+def get_subdomains():
+	d = []
+	with open(f2) as f:
+		for line in f:
+			d.append(line.replace('\n',''))
+	return d		
+		
 def main():
 	parser = argparse.ArgumentParser(
 		version=__version__,
@@ -160,7 +174,7 @@ def main():
 	'''
 	check for virustotal subdomains
 	'''
-	init('+ checking for virustotal subdomains:', False)
+	init('+ checking for subdomains:', False)
 	subdomain_list = []
 
 	_ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -172,7 +186,7 @@ def main():
 			try:
 				apikey_vt = apikey['virustotal']
 				if apikey_vt != '':
-					virustotal_list = virustotal_subdomains.get_subdomains()
+					virustotal_list = get_subdomains()
 					if virustotal_list:
 						init('YES', True)
 						print(json.dumps(virustotal_list, indent=4, separators=(',', ': ')))
