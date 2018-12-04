@@ -145,10 +145,8 @@ def main():
 	save_scan_json = args.json
 	
         
-	d = "%02d".format(datetime.now().day)
-	m = "%02d".format(datetime.now().month)
-	y = "%04d".format(datetime.now().year)
-	day = str(d)+"-"+str(m)+"-"+str(y)
+	
+	day = str(datetime.now().day)+"-"+str(datetime.now().month)+"-"+str(datetime.now().year)
 	root = '/root/asset'
 	f2 = os.path.join(root,target,day,'FQDN.txt')
 	
