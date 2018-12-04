@@ -146,8 +146,8 @@ def main():
 	
         
 	day = str('{:02d}'.format(datetime.now().day))+"-"+str('{:02d}'.format(datetime.now().month)+"-"+str(datetime.now().year)
-	root = '/root/asset'
-	f2 = os.path.join(root,target,day,'FQDN.txt')
+	roott = '/root/asset'
+	f2 = os.path.join(roott,target,day,'FQDN.txt')
 	
 	d = []
 	with open(f2) as f:
