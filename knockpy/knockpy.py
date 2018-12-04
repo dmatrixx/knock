@@ -146,7 +146,7 @@ def main():
 	
         
 	
-	day = str(datetime.now().day)+"-"+str(datetime.now().month)+"-"+str(datetime.now().year)
+	day = str("%02d" % datetime.now().day)+"-"+str("%02d" % datetime.now().month)+"-"+str("%04d" % datetime.now().year)
 	root = '/root/asset'
 	f2 = os.path.join(root,target,day,'FQDN.txt')
 	
