@@ -147,7 +147,7 @@ def main():
         
 	
 	day = str("%02d" % datetime.now().day)+"-"+str("%02d" % datetime.now().month)+"-"+str("%04d" % datetime.now().year)
-	root = '/home/ubuntu'
+	root = '/home/ubuntu/asset'
 	f2 = os.path.join(root,target,day,'FQDN.txt')
 	
 	d = []
