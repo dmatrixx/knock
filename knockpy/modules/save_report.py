@@ -1,6 +1,12 @@
 import time
 import json
+from datetime import datetime
+import os.path
 
+
+root = '/home/ubuntu/asset'
+day = str("%02d" % datetime.now().day)+"-"+str("%02d" % datetime.now().month)+"-"+str("%04d" % datetime.now().year)
+		  
 def touch(filename):
 	fname = filename
 	file = open(fname, 'w')
@@ -8,7 +14,7 @@ def touch(filename):
 
 def export(domain, report, _type, fields=False):
 	timestamp = time.time()
-	filename = domain.replace('.', '_')+'_'+str(timestamp)+'.'+_type
+	filename = os.path.join(root,domain,day,'report.txt'
 	if _type == 'csv':
 		csv_report = ''
 		if fields:
