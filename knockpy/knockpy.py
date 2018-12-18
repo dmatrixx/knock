@@ -61,8 +61,8 @@ def print_header():
 """
 
 def print_header_scan():
-	print '\nIp Address\tStatus\tType\tDomain Name\t\t\tServer'
-	print '----------\t------\t----\t-----------\t\t\t------'
+	print '\nIp Address\tStatus\tType\tDomain Name\t\t\tServer\t\t\thttp_headers\t\t\t'
+	print '----------\t------\t----\t-----------\t\t\t------\t\t\t---------\t\t\t'
 
 def get_tab(string):
 		if len(str(string)) > 23:
