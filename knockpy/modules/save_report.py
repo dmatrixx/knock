@@ -6,7 +6,8 @@ import os.path
 
 root = '/home/ubuntu/asset'
 day = str("%02d" % datetime.now().day)+"-"+str("%02d" % datetime.now().month)+"-"+str("%04d" % datetime.now().year)
-		  
+f2 = os.path.join(root,domain,day,'report')
+
 def touch(filename):
 	fname = filename
 	file = open(fname, 'w')
@@ -14,11 +15,11 @@ def touch(filename):
 
 def export(domain, report, _type, fields=False):
 	timestamp = time.time()
-	filename = os.path.join(root,domain,day,'report.txt'
+	filename = f2+'.'+_type
 	if _type == 'csv':
 		csv_report = ''
 		if fields:
-			csv_report += 'ip,status,type,domain_name,server\n'
+			csv_report += 'ip,status,type,domain_name,server,http_headers\n'
 		for item in report:
 			csv_report += item + '\n'
 		report = csv_report
