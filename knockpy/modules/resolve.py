@@ -2,6 +2,7 @@ import json
 import header
 import socket
 import time
+from multiprocessing.pool import ThreadPool
 #import zonetransfer
 
 ''' set the default timeout on sockets to 5 seconds '''
@@ -53,3 +54,21 @@ def resolve(target):
 
 	response = json.dumps(response, indent=4, separators=(',', ': '))
 	return response	
+
+if args.threads:
+    t = args.threads
+    thread_pool = ThreadPool(t)
+else:
+    thread_pool = ThreadPool(50)
+
+workers = []
+for list in lists:
+    w = thread_pool.apply_async(resolve, (list,))
+    workers.append(w)
+
+# ensure all workers complete
+for w in workers:
+    w.get()
+
+thread_pool.close()
+thread_pool.join()
