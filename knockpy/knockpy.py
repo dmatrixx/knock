@@ -134,6 +134,10 @@ def main():
 						action='store_true', required=False)
 	parser.add_argument('-j', '--json', help='export full report in JSON',
 						action='store_true', required=False)
+	
+	parser.add_argument('-f', '--file', help='export full report in JSON',
+						action='store_true', required=True)
+
 
 	args = parser.parse_args()
 	
@@ -148,7 +152,7 @@ def main():
 	
 	day = str("%02d" % datetime.now().day)+"-"+str("%02d" % datetime.now().month)+"-"+str("%04d" % datetime.now().year)
 	root = os.path.expanduser('~/asset')
-	f2 = os.path.join(root,target,'FQDN.txt')
+	f2 = args.file
 	
 	d = []
 	with open(f2) as f:
